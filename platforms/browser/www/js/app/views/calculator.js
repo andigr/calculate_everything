@@ -23,18 +23,32 @@ app.views.Calculator = Backbone.View.extend({
 
   buttonClicked: function(e) {
     var clicked = $(e.target);
-    var value = clicked.html();
+    var value = clicked.data('value').toString();
+    if(value == 'clear') {
+      this.reset();
+      return;
+    }
 
     var storeValue = this.model.process(value);
     if(storeValue) {
       var newHolder = this.createNewHolder();
       this.active = newHolder;
+      $('.result-container').show();
     }
-    this.updateCurrentSection(this.model.currentNumber);
+    this.update();
   },
 
-  updateCurrentSection: function(value) {
-    this.active.find('input').val(value);
+  update: function() {
+    this.updateCurrentSection();
+    this.updateResult();
+  },
+
+  updateCurrentSection: function() {
+    this.active.find('input').val(this.model.currentNumber);
+  },
+
+  updateResult: function() {
+    $('.result-container input').val(this.model.calculateResult());
   },
 
   createNewHolder: function(value, operation) {
@@ -44,6 +58,14 @@ app.views.Calculator = Backbone.View.extend({
     var newHolder = this.el.find('.value-container').append(compiled);
     window.scrollTo(0,document.body.scrollHeight);
     return compiled;
+  },
+
+  reset: function() {
+    this.el.find('.value-container').empty();
+    this.model.reset();
+    var newHolder = this.createNewHolder('');
+    this.active = newHolder;
+    this.update();
   }
 
 });

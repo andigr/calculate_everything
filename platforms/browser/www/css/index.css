@@ -129,3 +129,9 @@ h1 {
 .right {
     float: right;
 }
+.result-container {
+    display: none;
+}
+.result-container input {
+    background-color: #eee;
+}

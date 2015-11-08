@@ -1,45 +1,64 @@
 <script id="calculator" type="text/html">
 	<div class="value-container"></div>
-	<div class="ui-grid-c ui-responsive">
-		<div class="ui-block-a text-center">
-			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all">7</button>
-		</div>
-		<div class="ui-block-b text-center">
-			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all">8</button>
-		</div>
-		<div class="ui-block-c text-center">
-			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all">9</button>
-		</div>
-		<div class="ui-block-d text-center">
-			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all">+</button>
+	<div class="half-width centered" id="value-holder">
+		<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset result-container">
+			<input class="active" type="text" name="text-1" id="text-1" value="" readonly>
 		</div>
 	</div>
-	<div class="ui-grid-c ui-responsive">
+	<div class="ui-grid-c">
 		<div class="ui-block-a text-center">
-			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all">4</button>
+			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all" data-value="7">7</button>
 		</div>
 		<div class="ui-block-b text-center">
-			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all">5</button>
+			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all" data-value="8">8</button>
 		</div>
 		<div class="ui-block-c text-center">
-			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all">6</button>
+			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all" data-value="9">9</button>
 		</div>
 		<div class="ui-block-d text-center">
-			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all">-</button>
+			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all" data-value="+">+</button>
 		</div>
 	</div>
-	<div class="ui-grid-c ui-responsive">
+	<div class="ui-grid-c">
 		<div class="ui-block-a text-center">
-			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all">1</button>
+			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all" data-value="4">4</button>
 		</div>
 		<div class="ui-block-b text-center">
-			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all">2</button>
+			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all" data-value="5">5</button>
 		</div>
 		<div class="ui-block-c text-center">
-			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all">3</button>
+			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all" data-value="6">6</button>
 		</div>
 		<div class="ui-block-d text-center">
-			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all">0</button>
+			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all" data-value="-">-</button>
+		</div>
+	</div>
+	<div class="ui-grid-c">
+		<div class="ui-block-a text-center">
+			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all" data-value="1">1</button>
+		</div>
+		<div class="ui-block-b text-center">
+			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all" data-value="2">2</button>
+		</div>
+		<div class="ui-block-c text-center">
+			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all" data-value="3">3</button>
+		</div>
+		<div class="ui-block-d text-center">
+			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all" data-value="0">0</button>
+		</div>
+	</div>
+	<div class="ui-grid-c">
+		<div class="ui-block-a text-center">
+			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all" data-value="back"><-</button>
+		</div>
+		<div class="ui-block-b text-center">
+			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all" data-value="clear">Clear</button>
+		</div>
+		<div class="ui-block-c text-center">
+			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all"></button>
+		</div>
+		<div class="ui-block-d text-center">
+			<button class="ui-btn ui-btn-inline ui-shadow ui-corner-all"></button>
 		</div>
 	</div>
 </script>
@@ -49,4 +68,4 @@
 			<input class="active" type="text" name="text-1" id="text-1" value="<%= value %>" readonly>
 		</div>
 	</div>
-</script>
+</script>	

@@ -5,23 +5,21 @@ app.models.Calculator = Backbone.Model.extend({
 	elementsStack: [],
 
 	initialize: function() {
-	    this.currentNumber = '';
-	    this.previousNumber = '';
-	    this.elementsStack = [];
+	    this.reset();
 	},
 
 
 	process: function(input) {
 		var numbers = ['0','1','2','3','4','5','6','7','8','9'];
-		var operations = ['+', '-'];
+		var operations = ['+', '-', 'back', 'clear'];
 		if(numbers.indexOf(input) != -1) {
 			this.processNumber(input);
 		}
 		if(operations.indexOf(input) != -1) {
-			this.processOperation(input);
 			var toStore = this.currentNumber;
-			this.currentNumber = '';
-			return toStore;
+			if(this.processOperation(input)) {
+				return toStore;
+			}
 		}
 	},
 
@@ -30,8 +28,21 @@ app.models.Calculator = Backbone.Model.extend({
 	},
 
 	processOperation: function(input) {
+		console.log(input);
+		if(input == 'back') {
+			if(this.currentNumber.length > 0) {
+				this.currentNumber = this.currentNumber.slice(0, this.currentNumber.length - 1);
+			}
+			return false;
+		}
+		if(input == 'clear') {
+			this.reset();
+			return false;
+		}
 		if(this.currentNumber != '') {
 			this.elementsStack.push({'number':parseFloat(this.currentNumber), operation: input});
+			this.currentNumber = '';
+			return true;
 		}
 	},
 
@@ -51,7 +62,6 @@ app.models.Calculator = Backbone.Model.extend({
 			value = currentValue;
 			operation = nextOperation;
 		}
-			console.log(operation);
 		if(this.currentNumber != '') {
 			result = this.performOperation(result, parseFloat(this.currentNumber), operation);
 			if(operation == '') {
@@ -72,6 +82,12 @@ app.models.Calculator = Backbone.Model.extend({
 			}
 		}
 		return a;
+	},
+
+	reset: function() {
+		this.currentNumber = '';
+	    this.previousNumber = '';
+	    this.elementsStack = [];
 	}
 
 });

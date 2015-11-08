@@ -34,4 +34,40 @@ describe('calculator', function() {
 	    expect(calculator.calculateResult()).toBe(71);
 	});
 
+	it("minus operator should work correctly", function() {
+	    calculator.process('7');
+	    calculator.process('6');
+	    calculator.process('-');
+	    calculator.process('1');
+	    calculator.process('5');
+	    expect(calculator.calculateResult()).toBe(61);
+	});
+
+	it("back operator should work correctly", function() {
+		calculator.process('8');
+		calculator.process('5');
+		calculator.process('back');
+		expect(calculator.calculateResult()).toBe(8);
+	});
+
+	it("back operator should work correctly when other operation has been perfromed", function() {
+		calculator.process('8');
+		calculator.process('5');
+		calculator.process('+');
+		calculator.process('7');
+		calculator.process('0');
+		calculator.process('back');
+		expect(calculator.calculateResult()).toBe(92);
+	});
+
+	it("clear operator should work correctly", function() {
+		calculator.process('8');
+		calculator.process('5');
+		calculator.process('+');
+		calculator.process('7');
+		calculator.process('0');
+		calculator.process('clear');
+		expect(calculator.calculateResult()).toBe(0);
+	});
+
 });
