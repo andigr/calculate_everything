@@ -7,6 +7,34 @@ app.views.Calculator = Backbone.View.extend({
 
   render: function(){
     this.el.html(this.template.html());
+    var buttons = [
+      {
+        '7':'7',
+        '8':'8',
+        '9':'9',
+        '+':'+'
+      },
+      {
+        '4':'4',
+        '5':'5',
+        '6':'6',
+        '-':'-',
+      },
+      {
+        '1':'1',
+        '2':'2',
+        '3':'3',
+        '0':'0'
+      },
+      {
+        'back':'back',
+        'clear':'clear',
+        'x':'x',
+        'x':'x'
+      }
+    ];
+    var buttonBuilder = new app.views.ButtonBuilder({el: this.el.find('.buttons-container'), buttons: buttons});
+    buttonBuilder.render();
     var newHolder = this.createNewHolder('');
     this.active = newHolder;
     this.bindEvents();
