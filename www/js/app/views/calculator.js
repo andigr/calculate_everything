@@ -8,30 +8,30 @@ app.views.Calculator = Backbone.View.extend({
   render: function(){
     this.el.html(this.template.html());
     var buttons = [
-      {
-        '7':'7',
-        '8':'8',
-        '9':'9',
-        '+':'+'
-      },
-      {
-        '4':'4',
-        '5':'5',
-        '6':'6',
-        '-':'-',
-      },
-      {
-        '1':'1',
-        '2':'2',
-        '3':'3',
-        '0':'0'
-      },
-      {
-        'back':'back',
-        'clear':'clear',
-        'x':'x',
-        'x':'x'
-      }
+      [
+        {k: '7', v:'7'},
+        {k: '8', v:'8'},
+        {k: '9', v:'9'},
+        {k: '+', v:'+'}
+      ],
+      [
+        {k: '4', v:'4'},
+        {k: '5', v:'5'},
+        {k: '6', v:'6'},
+        {k: '-', v:'-'},
+      ],
+      [
+        {k: '1', v:'1'},
+        {k: '2', v:'2'},
+        {k: '3', v:'3'},
+        {k: '0', v:'0'}
+      ],
+      [
+        {k: 'back', v:'back'},
+        {k: 'clear', v:'clear'},
+        {k: '*', v:'x'},
+        {K: '/', v:'/'}
+      ]
     ];
     var buttonBuilder = new app.views.ButtonBuilder({el: this.el.find('.buttons-container'), buttons: buttons});
     buttonBuilder.render();

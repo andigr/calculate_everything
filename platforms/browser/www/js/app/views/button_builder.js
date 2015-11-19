@@ -12,10 +12,9 @@ app.views.ButtonBuilder = Backbone.View.extend({
 			var row = $(this.row.clone().html());
 			$(this.el).append(row);
 			for(var j in this.buttonsData[i]) {
-				var buttonData = this.buttonsData[i];
 				var template = _.template(this.buttonHtml);
-				var value = this.buttonsData[i][j];
-				var compiled = template({value: value, 'label':j});
+				var buttonData = this.buttonsData[i][j];
+				var compiled = template({value: buttonData.k, 'label': buttonData.v});
 				$(row).append(compiled);
 			}
 		}

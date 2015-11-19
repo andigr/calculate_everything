@@ -11,7 +11,7 @@ app.models.Calculator = Backbone.Model.extend({
 
 	process: function(input) {
 		var numbers = ['0','1','2','3','4','5','6','7','8','9'];
-		var operations = ['+', '-', 'back', 'clear'];
+		var operations = ['+', '-', '*', '/', 'back', 'clear'];
 		if(numbers.indexOf(input) != -1) {
 			this.processNumber(input);
 		}
@@ -79,6 +79,12 @@ app.models.Calculator = Backbone.Model.extend({
 			}
 			if(operation == '-') {
 				a -= b;
+			}
+			if(operation == '*') {
+				a *= b;
+			}
+			if(operation == '/') {
+				a /= b;
 			}
 		}
 		return a;

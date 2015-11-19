@@ -43,6 +43,22 @@ describe('calculator', function() {
 	    expect(calculator.calculateResult()).toBe(61);
 	});
 
+	it("multiply operator should work correctly", function() {
+	    calculator.process('1');
+	    calculator.process('2');
+	    calculator.process('*');
+	    calculator.process('3');
+	    expect(calculator.calculateResult()).toBe(36);
+	});
+
+	it("divide operator should work correctly", function() {
+	    calculator.process('5');
+	    calculator.process('6');
+	    calculator.process('/');
+	    calculator.process('7');
+	    expect(calculator.calculateResult()).toBe(8);
+	});
+
 	it("back operator should work correctly", function() {
 		calculator.process('8');
 		calculator.process('5');
