@@ -54,7 +54,7 @@ describe('calculator', function() {
 	it("divide operator should work correctly", function() {
 	    calculator.process('5');
 	    calculator.process('6');
-	    calculator.process('/');
+	    calculator.process('divide');
 	    calculator.process('7');
 	    expect(calculator.calculateResult()).toBe(8);
 	});

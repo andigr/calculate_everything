@@ -15,6 +15,7 @@ app.Region = (function (Backbone, $) {
     };
 
     region.show = function (View) {
+        console.log(523);
         var view = new View({el: '#app'})
         closeView(currentView);
         currentView = view;
@@ -47,6 +48,10 @@ app.Region = (function (Backbone, $) {
 
     this.calculator = function() {
       app.Region.show(app.views.Calculator);
+    }
+
+    this.aggregations = function() {
+      app.Region.show(app.views.Aggregations);
     }
 
     init();

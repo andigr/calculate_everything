@@ -1,11 +1,11 @@
-app.views.Calculator = app.views.Base.extend({
+app.views.Aggregations = app.views.Base.extend({
   initialize: function() {
     this.model = new app.models.Calculator({view: this});
     this.template = app.templates.get('#calculator').clone();
     this.el = $(this.el);
   },
 
-  render: function(){
+  render: function() {
     this.el.html(this.template.html());
     var buttons = [
       [
@@ -41,13 +41,4 @@ app.views.Calculator = app.views.Base.extend({
     this.el.hide();
   },
 
-  reset: function() {
-    this.el.find('.value-container').empty();
-    this.model.reset();
-    var newHolder = this.createNewHolder('');
-    this.active = newHolder;
-    this.update();
-  }
-
 });
-
